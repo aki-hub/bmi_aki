@@ -14,6 +14,11 @@ class SecondViewController: UIViewController {
     var height:String!
     var bmi:Double!
     
+    @IBOutlet weak var resultLabel: UILabel!
+    @IBOutlet weak var goodLabel: UILabel!
+    @IBOutlet weak var hikakuLabel: UILabel!
+    @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var waku2Label: UILabel!
     
     
     override func viewDidLoad() {
