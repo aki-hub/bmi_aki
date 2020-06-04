@@ -45,10 +45,9 @@ class FirstViewController: UIViewController,UITextFieldDelegate {
            
            //textFieldの下線作成
            weightTextField.placeholder = "NAME"
-           weightTextField.addBorderBottom(height:1.0,color:UIColor.lightGray)
+           weightTextField.addBorderBottom(height: 1.0, coler:UIColor.lightGray )
+           heightTextField.addBorderBottom(height: 1.0, coler: UIColor.lightGray)
            heightTextField.placeholder = "NAME"
-           heightTextField.addBorderBottom(height:1.0,color:UIColor.lightGray)
-           
            weightTextField.delegate = self
            heightTextField.delegate = self
            weightTextField.placeholder = "体重"
