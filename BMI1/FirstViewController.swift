@@ -109,14 +109,3 @@ extension FirstViewController: UITextFieldDelegate {
        return true
     }
 }
-
-extension UITextField {
-    func addBorderBottom(height: CGFloat, coler: UIColor) {
-        let border = CALayer()
-        border.frame = CGRect(x: 0, y: self.frame.height - height, width: self.frame.width, height: height)
-        border.backgroundColor = coler.cgColor
-        self.layer.addSublayer(border)
-    }
-}
-    
-
