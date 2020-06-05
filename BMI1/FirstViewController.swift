@@ -25,7 +25,7 @@ class FirstViewController: UIViewController,UITextFieldDelegate {
            secondLabel.numberOfLines = 3
            secondLabel.text = "前回の健康診断の結果はいかがでしたか？\n現在のBMI指数を把握して\n健康を維持しましょう。"
            weightTextField.text = "体重"
-                  heightTextField.text = "身長"
+           heightTextField.text = "身長"
            //青色の設定
            let rgba = UIColor(red:55/255,green:200/255,blue: 214/255,alpha: 1.0)
            //ボタンの角の設定
@@ -97,19 +97,13 @@ class FirstViewController: UIViewController,UITextFieldDelegate {
         } else {
             secondLabel.text = "数値を入力してください"
         }
+        weightTextField.text = ""
+        heightTextField.text = ""
         }
     
     @IBAction func resetButton(_ sender: Any) {
         weightTextField.text = ""
         heightTextField.text = ""
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-       //viewDidLoadの処理
-        weightTextField.text = ""
-        heightTextField.text = ""
-       
     }
     
     // キーボードを閉じる（returnキーを押下時）
