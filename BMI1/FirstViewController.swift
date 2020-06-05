@@ -27,21 +27,7 @@ class FirstViewController: UIViewController,UITextFieldDelegate {
         configureHeightTextField()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-       
-    @IBAction func heightTextField(_ sender: Any) {
-        
-    }
-    
-    @IBAction func weightTextField(_ sender: Any) {
-        
-    }
-    
     @IBAction func resultButton(_ sender: Any) {
-        //Storyboardから遷移先のViewControllerを生成
-        //簡易的なコードなので強制キャストしている。
         let vc = UIStoryboard(name: "SecondViewController", bundle: nil).instantiateInitialViewController() as! SecondViewController
         
         if weightTextField.text != nil {
@@ -60,7 +46,7 @@ class FirstViewController: UIViewController,UITextFieldDelegate {
                 vc.bmi = bmi
                 vc.goodWeight = goodWeight
                 vc.hikaku = hikaku
-                //present()で遷移する
+                
                 present(vc, animated: true, completion: nil)
             } else {
                 secondLabel.text = "数値を入力してください"

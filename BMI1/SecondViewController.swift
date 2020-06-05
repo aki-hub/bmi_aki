@@ -54,13 +54,6 @@ class SecondViewController: UIViewController {
     }
     
     @IBAction func resetButton(_ sender: Any) {
-        /*
-        let vc = UIStoryboard(name: "FirstViewController", bundle: nil).instantiateInitialViewController()as! FirstViewController
-        
-        vc.weightTextField.placeholder = ""
-        vc.heightTextField.placeholder = ""
-    */
-        //present()で遷移する
         dismiss(animated: true, completion: nil)
     }
     
