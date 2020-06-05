@@ -28,29 +28,28 @@ class FirstViewController: UIViewController {
     }
     
     @IBAction func resultButton(_ sender: Any) {
-        let vc = UIStoryboard(name: "SecondViewController", bundle: nil).instantiateInitialViewController() as! SecondViewController
+        // NOTE: if let のネストを防ぐ、早期 Return のために guard let を使用する.
+        guard let weightText = weightTextField.text,
+            let heightText = heightTextField.text else { return }
         
-        if weightTextField.text != nil {
-            if heightTextField.text != nil {
-                let doubleWeight: Double = atof(weightTextField.text)
-                let doubleHeight: Double = atof(heightTextField.text) / 100
-                
-                var bmi: Double = doubleWeight / (doubleHeight * doubleHeight)
-                var goodWeight: Double = 22 * doubleHeight * doubleHeight
-                var hikaku: Double = doubleWeight - goodWeight
-                
-                bmi = round(bmi * 100) / 100
-                goodWeight = round(goodWeight * 100) / 100
-                hikaku = round(hikaku * 100) / 100
-                        
-                vc.bmi = bmi
-                vc.goodWeight = goodWeight
-                vc.hikaku = hikaku
-                
-                present(vc, animated: true, completion: nil)
-            } else {
-                secondLabel.text = "数値を入力してください"
-            }
+        // NOTE: 数値のチェックはキャストで可能
+        if let weight = Double(weightText),
+            let height = Double(heightText) {
+            
+            var bmi: Double = weight / (height * height)
+            var goodWeight: Double = 22 * height * height
+            var hikaku: Double = weight - weight
+            
+            bmi = round(bmi * 100) / 100
+            goodWeight = round(goodWeight * 100) / 100
+            hikaku = round(hikaku * 100) / 100
+            
+            let vc = UIStoryboard(name: "SecondViewController", bundle: nil).instantiateInitialViewController() as! SecondViewController
+            vc.bmi = bmi
+            vc.goodWeight = goodWeight
+            vc.hikaku = hikaku
+            
+            present(vc, animated: true, completion: nil)
         } else {
             secondLabel.text = "数値を入力してください"
         }
