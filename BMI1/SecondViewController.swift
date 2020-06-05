@@ -54,7 +54,7 @@ extension SecondViewController {
     }
     
     private func configureResultLabels() {
-        resultLabel.text = convertBmiToFormattedString(of: bmi)
+        resultLabel.text = convertBmiToFormattedString(from: bmi)
         goodLabel.text = String(format: "%.2f kg", goodWeight)
         hikakuLabel.text = String(format: "%.2f kg", hikaku)
     }
@@ -64,7 +64,7 @@ extension SecondViewController {
 
 extension SecondViewController {
     
-    private func convertBmiToFormattedString(of bmi: Double) -> String {
+    private func convertBmiToFormattedString(from bmi: Double) -> String {
         let roundedBmiString = String(format: "%.2f", bmi)
         
         if bmi < 18.5 {
