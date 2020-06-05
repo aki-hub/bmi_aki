@@ -36,13 +36,9 @@ class FirstViewController: UIViewController {
         if let weight = Double(weightText),
             let height = Double(heightText) {
             
-            var bmi: Double = weight / (height * height)
-            var goodWeight: Double = 22 * height * height
-            var hikaku: Double = weight - weight
-            
-            bmi = round(bmi * 100) / 100
-            goodWeight = round(goodWeight * 100) / 100
-            hikaku = round(hikaku * 100) / 100
+            let bmi: Double = weight / (height * height)
+            let goodWeight: Double = 22 * height * height
+            let hikaku: Double = goodWeight - weight
             
             // NOTE: 値渡しの漏れを防ぐために関数として切り出して、必ず全ての値を渡すようにする.
             presentSecond(bmi: bmi, goodWeight: goodWeight, hikaku: hikaku)
