@@ -9,7 +9,7 @@
 import UIKit
 import Darwin
 
-class FirstViewController: UIViewController,UITextFieldDelegate {
+class FirstViewController: UIViewController {
     
     @IBOutlet weak var secondLabel: UILabel!
     @IBOutlet weak var waku1Label: UILabel!
@@ -62,13 +62,6 @@ class FirstViewController: UIViewController,UITextFieldDelegate {
         weightTextField.text = ""
         heightTextField.text = ""
     }
-    
-    // キーボードを閉じる（returnキーを押下時）
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
 }
 
 // MARK: - Configure
@@ -104,6 +97,16 @@ extension FirstViewController {
     private func configureHeightTextField() {
         heightTextField.addBorderBottom(height: 1.0, coler: UIColor.lightGray)
         heightTextField.delegate = self
+    }
+}
+
+// MARK: - TextField delegate
+
+extension FirstViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+       textField.resignFirstResponder()
+       return true
     }
 }
 
