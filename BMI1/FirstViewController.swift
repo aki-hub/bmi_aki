@@ -17,13 +17,18 @@ class FirstViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var resultButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var firstLabel: UILabel!
+    
     
     override func viewDidLoad() {
            super.viewDidLoad()
-
+           //文字の太さ
+           firstLabel.font = UIFont.boldSystemFont(ofSize: 17)
+           secondLabel.font = UIFont.boldSystemFont(ofSize: 15)
+        
            secondLabel.numberOfLines = 3
            secondLabel.text = "前回の健康診断の結果はいかがでしたか？\n現在のBMI指数を把握して\n健康を維持しましょう。"
-           
+
            //青色の設定
            let rgba = UIColor(red:55/255,green:200/255,blue: 214/255,alpha: 1.0)
            //ボタンの角の設定
@@ -68,19 +73,40 @@ class FirstViewController: UIViewController,UITextFieldDelegate {
     //Storyboardから遷移先のViewControllerを生成
            //簡易的なコードなので強制キャストしている。
            let vc = UIStoryboard(name: "SecondViewController", bundle: nil).instantiateInitialViewController()as! SecondViewController
+        
+        if weightTextField.text != nil {
+            if heightTextField.text != nil {
+        var doubleWeight:Double = atof(weightTextField.text)
+        var doubleHeight:Double = atof(heightTextField.text)/100
+        
+        var bmi:Double = doubleWeight / (doubleHeight * doubleHeight)
+        var goodWeight:Double = 22 * doubleHeight * doubleHeight
+        var hikaku:Double = doubleWeight - goodWeight
+        
+        bmi = round(bmi*100)/100
+        goodWeight = round(goodWeight*100)/100
+        hikaku = round(hikaku*100)/100
+                
+        vc.bmi = bmi
+        vc.goodWeight = goodWeight
+        vc.hikaku = hikaku
            //present()で遷移する
            present(vc,animated: true,completion: nil)
-
-           //let weight:Double = atof(weightField.text)
-           vc.weight = weightTextField.text
-           //let height:Double = atof(heightField.text)
-           vc.height = heightTextField.text
+            
+        } else {
+                secondLabel.text = "数値を入力してください"
+        }
     
-    }
+        } else {
+            secondLabel.text = "数値を入力してください"
+        }
+        weightTextField.text = ""
+        heightTextField.text = ""
+        }
     
     @IBAction func resetButton(_ sender: Any) {
-        weightTextField.placeholder = ""
-        heightTextField.placeholder = ""
+        weightTextField.text = ""
+        heightTextField.text = ""
     }
     
     // キーボードを閉じる（returnキーを押下時）
