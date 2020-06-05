@@ -26,19 +26,7 @@ class SecondViewController: UIViewController {
         configureResetButton()
         configureWaku2Label()
         
-        if 25 <= bmi && bmi < 30 {
-            resultLabel.text = String("\(bmi!) ") + "　肥満（１度)"
-        } else if 30 <= bmi && bmi < 35 {
-            resultLabel.text = String("\(bmi!) ") + "　肥満（２度)"
-        } else if 35 <= bmi && bmi < 40 {
-            resultLabel.text = String("\(bmi!) ") + "　肥満（３度）"
-        } else if 40 <= bmi {
-            resultLabel.text = String("\(bmi!)") + "　肥満（４度）"
-        } else if 18.5 <= bmi && bmi < 25 {
-            resultLabel.text = String("\(bmi!)") + "　普通体重"
-        } else if bmi < 18.5 {
-            resultLabel.text = String("\(bmi!)") + "  低体重"
-        }
+        resultLabel.text = convertBmiToFormattedString(of: bmi)
         goodLabel.text = String("\(goodWeight!)") + "　kg"
         hikakuLabel.text = String("\(hikaku!)") + "　kg"
         
@@ -67,5 +55,31 @@ extension SecondViewController {
         waku2Label.layer.shadowOffset = CGSize(width: 5, height: 5)
         waku2Label.layer.shadowOpacity = 0.1
         waku2Label.layer.borderWidth = 0.1
+    }
+}
+
+// MARK: - Util
+
+extension SecondViewController {
+    
+    private func convertBmiToFormattedString(of bmi: Double) -> String {
+        let roundedBmiString = String(format: "%.2f", bmi)
+        
+        if bmi < 18.5 {
+            return  roundedBmiString + "  低体重"
+        }
+        
+        switch bmi {
+        case 18.5 ..< 25:
+            return roundedBmiString + "  普通体重"
+        case 25 ..< 30:
+            return roundedBmiString + "  肥満（１度)"
+        case 30 ..< 35:
+            return roundedBmiString + "　肥満（２度)"
+        case 35 ..< 40:
+            return roundedBmiString + "　肥満（３度）"
+        default:
+            return roundedBmiString + "　肥満（４度）"
+        }
     }
 }
