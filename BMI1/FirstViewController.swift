@@ -44,12 +44,8 @@ class FirstViewController: UIViewController {
             goodWeight = round(goodWeight * 100) / 100
             hikaku = round(hikaku * 100) / 100
             
-            let vc = UIStoryboard(name: "SecondViewController", bundle: nil).instantiateInitialViewController() as! SecondViewController
-            vc.bmi = bmi
-            vc.goodWeight = goodWeight
-            vc.hikaku = hikaku
-            
-            present(vc, animated: true, completion: nil)
+            // NOTE: 値渡しの漏れを防ぐために関数として切り出して、必ず全ての値を渡すようにする.
+            presentSecond(bmi: bmi, goodWeight: goodWeight, hikaku: hikaku)
         } else {
             presentAlert(with: "数値を入力してください")
         }
@@ -107,6 +103,15 @@ extension FirstViewController {
         let ac = UIAlertController(title: "", message: message, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(ac, animated: true, completion: nil)
+    }
+    
+    private func presentSecond(bmi: Double, goodWeight: Double, hikaku: Double) {
+        let vc = UIStoryboard(name: "SecondViewController", bundle: nil).instantiateInitialViewController() as! SecondViewController
+        vc.bmi = bmi
+        vc.goodWeight = goodWeight
+        vc.hikaku = hikaku
+        
+        present(vc, animated: true, completion: nil)
     }
 }
 
