@@ -21,7 +21,6 @@ class FirstViewController: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureLabels()
         configureResetButton()
         configureWaku1Label()
         configureWeightTextField()
@@ -90,17 +89,9 @@ class FirstViewController: UIViewController,UITextFieldDelegate {
 
 extension FirstViewController {
     
-    private func configureLabels() {
-        firstLabel.font = UIFont.boldSystemFont(ofSize: 17)
-        secondLabel.font = UIFont.boldSystemFont(ofSize: 15)
-        secondLabel.numberOfLines = 3
-        secondLabel.text = "前回の健康診断の結果はいかがでしたか？\n現在のBMI指数を把握して\n健康を維持しましょう。"
-    }
-    
     private func configureResetButton() {
         //ボタンの角の設定
         resultButton.layer.cornerRadius = 5.0
-        
         resetButton.layer.borderColor = UIColor(red: 55/255, green: 200/255, blue: 214/255, alpha: 1.0).cgColor
         resetButton.layer.borderWidth = 0.8
         resetButton.layer.cornerRadius = 5.0
@@ -120,17 +111,13 @@ extension FirstViewController {
     }
     
     private func configureWeightTextField() {
-        weightTextField.placeholder = "NAME"
         weightTextField.addBorderBottom(height: 1.0, coler: UIColor.lightGray)
         weightTextField.delegate = self
-        weightTextField.placeholder = "体重"
     }
     
     private func configureHeightTextField() {
         heightTextField.addBorderBottom(height: 1.0, coler: UIColor.lightGray)
-        heightTextField.placeholder = "NAME"
         heightTextField.delegate = self
-        heightTextField.placeholder = "身長"
     }
 }
 
