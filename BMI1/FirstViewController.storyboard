@@ -33,7 +33,7 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqt-iH-S2y">
                                         <rect key="frame" x="0.0" y="173" width="314" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" red="0.39687880869999997" green="0.48297488690000001" blue="0.64315897229999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -78,7 +78,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="0BO-Y9-ciq"/>
                                                     <constraint firstAttribute="width" constant="40" id="V6M-Tu-Klk"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -126,6 +126,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="C08-QV-hqc"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="計算">
                                                     <color key="titleColor" red="0.99999719860000003" green="0.9999815822" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
@@ -165,6 +166,7 @@
                         <viewLayoutGuide key="safeArea" id="rY8-fA-qvB"/>
                     </view>
                     <connections>
+                        <outlet property="firstLabel" destination="PCl-iL-faE" id="JyC-nz-2Wc"/>
                         <outlet property="heightTextField" destination="8xt-iE-iib" id="zNp-4v-Iwy"/>
                         <outlet property="resetButton" destination="TSP-fS-ygJ" id="FKw-QA-9OR"/>
                         <outlet property="resultButton" destination="Vfk-2O-mNV" id="yWe-rx-Y0I"/>

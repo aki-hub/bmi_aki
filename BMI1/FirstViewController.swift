@@ -17,15 +17,18 @@ class FirstViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var resultButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var firstLabel: UILabel!
     
     
     override func viewDidLoad() {
            super.viewDidLoad()
-
+           //文字の太さ
+           firstLabel.font = UIFont.boldSystemFont(ofSize: 17)
+           secondLabel.font = UIFont.boldSystemFont(ofSize: 15)
+        
            secondLabel.numberOfLines = 3
            secondLabel.text = "前回の健康診断の結果はいかがでしたか？\n現在のBMI指数を把握して\n健康を維持しましょう。"
-           weightTextField.text = "体重"
-           heightTextField.text = "身長"
+
            //青色の設定
            let rgba = UIColor(red:55/255,green:200/255,blue: 214/255,alpha: 1.0)
            //ボタンの角の設定
@@ -80,9 +83,9 @@ class FirstViewController: UIViewController,UITextFieldDelegate {
         var goodWeight:Double = 22 * doubleHeight * doubleHeight
         var hikaku:Double = doubleWeight - goodWeight
         
-        bmi = round(bmi*10)/10
-        goodWeight = round(goodWeight*10)/10
-        hikaku = round(hikaku*10)/10
+        bmi = round(bmi*100)/100
+        goodWeight = round(goodWeight*100)/100
+        hikaku = round(hikaku*100)/100
                 
         vc.bmi = bmi
         vc.goodWeight = goodWeight
