@@ -51,7 +51,7 @@ class FirstViewController: UIViewController {
             
             present(vc, animated: true, completion: nil)
         } else {
-            secondLabel.text = "数値を入力してください"
+            presentAlert(with: "数値を入力してください")
         }
         weightTextField.text = ""
         heightTextField.text = ""
@@ -96,6 +96,17 @@ extension FirstViewController {
     private func configureHeightTextField() {
         heightTextField.addBorderBottom(height: 1.0, coler: UIColor.lightGray)
         heightTextField.delegate = self
+    }
+}
+
+// MARK: - Transition
+
+extension FirstViewController {
+    
+    private func presentAlert(with message: String) {
+        let ac = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(ac, animated: true, completion: nil)
     }
 }
 
