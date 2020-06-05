@@ -23,17 +23,8 @@ class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // パーツの設定
-        resetButton.layer.cornerRadius = 5.0
-        waku2Label.layer.cornerRadius = 20
-        waku2Label.layer.backgroundColor = UIColor.white.cgColor
-        waku2Label.layer.borderColor = UIColor.gray.cgColor
-        waku2Label.layer.shadowColor = UIColor.black.cgColor
-        waku2Label.layer.shadowRadius = 5
-        waku2Label.layer.shadowOffset = CGSize(width: 5, height: 5)
-        waku2Label.layer.shadowOpacity = 0.1
-        waku2Label.layer.borderWidth = 0.1
+        configureResetButton()
+        configureWaku2Label()
         
         if 25 <= bmi && bmi < 30 {
             resultLabel.text = String("\(bmi!) ") + "　肥満（１度)"
@@ -56,5 +47,25 @@ class SecondViewController: UIViewController {
     @IBAction func resetButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+}
+
+// MARK: - Configure
+
+extension SecondViewController {
     
+    private func configureResetButton() {
+        resetButton.layer.cornerRadius = 5.0
+    }
+    
+    private func configureWaku2Label() {
+        // NOTE: そもそも UILabel ではなく、UIView を使うべき
+        waku2Label.layer.cornerRadius = 20
+        waku2Label.layer.backgroundColor = UIColor.white.cgColor
+        waku2Label.layer.borderColor = UIColor.gray.cgColor
+        waku2Label.layer.shadowColor = UIColor.black.cgColor
+        waku2Label.layer.shadowRadius = 5
+        waku2Label.layer.shadowOffset = CGSize(width: 5, height: 5)
+        waku2Label.layer.shadowOpacity = 0.1
+        waku2Label.layer.borderWidth = 0.1
+    }
 }
