@@ -64,6 +64,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		710AB607248A5336000C79E0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				710AB608248A5343000C79E0 /* First */,
+				710AB609248A534E000C79E0 /* Second */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		710AB608248A5343000C79E0 /* First */ = {
+			isa = PBXGroup;
+			children = (
+				EBFE33DB248698FC00F645B8 /* FirstViewController.swift */,
+				EBFE33D7248698A200F645B8 /* FirstViewController.storyboard */,
+			);
+			path = First;
+			sourceTree = "<group>";
+		};
+		710AB609248A534E000C79E0 /* Second */ = {
+			isa = PBXGroup;
+			children = (
+				EBFE33DD2486991200F645B8 /* SecondViewController.swift */,
+				EBFE33D9248698D700F645B8 /* SecondViewController.storyboard */,
+			);
+			path = Second;
+			sourceTree = "<group>";
+		};
+		710AB60A248A5360000C79E0 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				710AB605248A4384000C79E0 /* UITextField+Extension.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		EBFE33A92486986400F645B8 = {
 			isa = PBXGroup;
 			children = (
@@ -87,14 +122,11 @@
 			children = (
 				EBFE33B52486986400F645B8 /* AppDelegate.swift */,
 				EBFE33B72486986400F645B8 /* SceneDelegate.swift */,
+				710AB607248A5336000C79E0 /* ViewController */,
+				710AB60A248A5360000C79E0 /* Util */,
 				EBFE33BE2486986600F645B8 /* Assets.xcassets */,
-				EBFE33D7248698A200F645B8 /* FirstViewController.storyboard */,
 				EBFE33C02486986600F645B8 /* LaunchScreen.storyboard */,
 				EBFE33C32486986600F645B8 /* Info.plist */,
-				EBFE33D9248698D700F645B8 /* SecondViewController.storyboard */,
-				EBFE33DB248698FC00F645B8 /* FirstViewController.swift */,
-				EBFE33DD2486991200F645B8 /* SecondViewController.swift */,
-				710AB605248A4384000C79E0 /* UITextField+Extension.swift */,
 			);
 			path = BMI1;
 			sourceTree = "<group>";
