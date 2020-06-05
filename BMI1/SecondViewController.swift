@@ -15,13 +15,11 @@ class SecondViewController: UIViewController {
     var goodWeight:Double!
     var hikaku:Double!
 
-    
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var goodLabel: UILabel!
     @IBOutlet weak var hikakuLabel: UILabel!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var waku2Label: UILabel!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
