@@ -25,11 +25,7 @@ class SecondViewController: UIViewController {
         super.viewDidLoad()
         configureResetButton()
         configureWaku2Label()
-        
-        resultLabel.text = convertBmiToFormattedString(of: bmi)
-        goodLabel.text = String(format: "%.2f kg", goodWeight)
-        hikakuLabel.text = String(format: "%.2f kg", hikaku)
-        
+        configureResultLabels()
     }
     
     @IBAction func resetButton(_ sender: Any) {
@@ -55,6 +51,12 @@ extension SecondViewController {
         waku2Label.layer.shadowOffset = CGSize(width: 5, height: 5)
         waku2Label.layer.shadowOpacity = 0.1
         waku2Label.layer.borderWidth = 0.1
+    }
+    
+    private func configureResultLabels() {
+        resultLabel.text = convertBmiToFormattedString(of: bmi)
+        goodLabel.text = String(format: "%.2f kg", goodWeight)
+        hikakuLabel.text = String(format: "%.2f kg", hikaku)
     }
 }
 
