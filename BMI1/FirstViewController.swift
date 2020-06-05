@@ -77,8 +77,8 @@ class FirstViewController: UIViewController,UITextFieldDelegate {
         
         if weightTextField.text != nil {
             if heightTextField.text != nil {
-                var doubleWeight:Double = atof(weightTextField.text)
-                var doubleHeight:Double = atof(heightTextField.text) / 100
+                let doubleWeight: Double = atof(weightTextField.text)
+                let doubleHeight: Double = atof(heightTextField.text) / 100
                 
                 var bmi: Double = doubleWeight / (doubleHeight * doubleHeight)
                 var goodWeight: Double = 22 * doubleHeight * doubleHeight
