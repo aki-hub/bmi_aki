@@ -11,9 +11,9 @@ import Darwin
 
 class SecondViewController: UIViewController {
 
-    var bmi:Double!
-    var goodWeight:Double!
-    var hikaku:Double!
+    var bmi: Double!
+    var goodWeight: Double!
+    var hikaku: Double!
 
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var goodLabel: UILabel!

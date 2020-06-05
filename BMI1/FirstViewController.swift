@@ -29,7 +29,7 @@ class FirstViewController: UIViewController,UITextFieldDelegate {
         secondLabel.text = "前回の健康診断の結果はいかがでしたか？\n現在のBMI指数を把握して\n健康を維持しましょう。"
 
         //青色の設定
-        let rgba = UIColor(red:55/255,green:200/255,blue: 214/255,alpha: 1.0)
+        let rgba = UIColor(red: 55/255, green: 200/255, blue: 214/255, alpha: 1.0)
         //ボタンの角の設定
         resultButton.layer.cornerRadius = 5.0
        
@@ -49,7 +49,7 @@ class FirstViewController: UIViewController,UITextFieldDelegate {
         
         //textFieldの下線作成
         weightTextField.placeholder = "NAME"
-        weightTextField.addBorderBottom(height: 1.0, coler:UIColor.lightGray )
+        weightTextField.addBorderBottom(height: 1.0, coler: UIColor.lightGray)
         heightTextField.addBorderBottom(height: 1.0, coler: UIColor.lightGray)
         heightTextField.placeholder = "NAME"
         weightTextField.delegate = self
@@ -73,26 +73,26 @@ class FirstViewController: UIViewController,UITextFieldDelegate {
     @IBAction func resultButton(_ sender: Any) {
         //Storyboardから遷移先のViewControllerを生成
         //簡易的なコードなので強制キャストしている。
-        let vc = UIStoryboard(name: "SecondViewController", bundle: nil).instantiateInitialViewController()as! SecondViewController
+        let vc = UIStoryboard(name: "SecondViewController", bundle: nil).instantiateInitialViewController() as! SecondViewController
         
         if weightTextField.text != nil {
             if heightTextField.text != nil {
                 var doubleWeight:Double = atof(weightTextField.text)
-                var doubleHeight:Double = atof(heightTextField.text)/100
+                var doubleHeight:Double = atof(heightTextField.text) / 100
                 
-                var bmi:Double = doubleWeight / (doubleHeight * doubleHeight)
-                var goodWeight:Double = 22 * doubleHeight * doubleHeight
-                var hikaku:Double = doubleWeight - goodWeight
+                var bmi: Double = doubleWeight / (doubleHeight * doubleHeight)
+                var goodWeight: Double = 22 * doubleHeight * doubleHeight
+                var hikaku: Double = doubleWeight - goodWeight
                 
-                bmi = round(bmi*100)/100
-                goodWeight = round(goodWeight*100)/100
-                hikaku = round(hikaku*100)/100
+                bmi = round(bmi * 100) / 100
+                goodWeight = round(goodWeight * 100) / 100
+                hikaku = round(hikaku * 100) / 100
                         
                 vc.bmi = bmi
                 vc.goodWeight = goodWeight
                 vc.hikaku = hikaku
                 //present()で遷移する
-                present(vc,animated: true,completion: nil)
+                present(vc, animated: true, completion: nil)
             } else {
                 secondLabel.text = "数値を入力してください"
             }
@@ -117,9 +117,9 @@ class FirstViewController: UIViewController,UITextFieldDelegate {
 }
 
 extension UITextField {
-    func addBorderBottom(height:CGFloat,coler:UIColor) {
+    func addBorderBottom(height: CGFloat, coler: UIColor) {
         let border = CALayer()
-        border.frame = CGRect(x:0, y:self.frame.height - height, width: self.frame.width,height: height)
+        border.frame = CGRect(x: 0, y: self.frame.height - height, width: self.frame.width, height: height)
         border.backgroundColor = coler.cgColor
         self.layer.addSublayer(border)
     }
