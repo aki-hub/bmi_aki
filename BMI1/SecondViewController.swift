@@ -27,8 +27,8 @@ class SecondViewController: UIViewController {
         configureWaku2Label()
         
         resultLabel.text = convertBmiToFormattedString(of: bmi)
-        goodLabel.text = String("\(goodWeight!)") + "　kg"
-        hikakuLabel.text = String("\(hikaku!)") + "　kg"
+        goodLabel.text = String(format: "%.2f kg", goodWeight)
+        hikakuLabel.text = String(format: "%.2f kg", hikaku)
         
     }
     
